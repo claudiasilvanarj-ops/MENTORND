@@ -1,1 +1,0 @@
-ALTER TABLE public.patients ADD COLUMN IF NOT EXISTS clinical_indication text;
