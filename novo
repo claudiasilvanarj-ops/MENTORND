@@ -1,0 +1,15 @@
+import { createRootRoute, Outlet } from '@tanstack/react-router'
+
+export const Route = createRootRoute({
+  component: () => (
+    <>
+      <Outlet />
+    </>
+  ),
+})
+
+import { createFileRoute } from '@tanstack/react-router'
+
+export const Route = createFileRoute('/')({
+  component: () => <div><h1>MentorND está online!</h1></div>,
+})
