@@ -1,9 +1,8 @@
-import { createFileRoute, Outlet } from '@tanstack/react-router';
-
-export const Route = createFileRoute('__root__')({
+import { createRootRoute, Outlet } from '@tanstack/react-router'
+export const Route = createRootRoute({
   component: () => (
     <>
       <Outlet />
     </>
   ),
-});
+})
