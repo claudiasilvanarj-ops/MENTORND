@@ -1,10 +1,9 @@
-import { createFileRoute } from '@tanstack/react-router'
+import { createRootRoute, Outlet } from '@tanstack/react-router';
 
-export const Route = createFileRoute('/dashboard')({
+export const Route = createRootRoute({
   component: () => (
-    <div style={{ padding: '20px', color: 'white', background: '#0f172a', height: '100vh' }}>
-      <h2>🚀 Painel de Controle Noosférico</h2>
-      <p>Bem-vinda ao centro de comando da Alta Integridade.</p>
-    </div>
+    <>
+      <Outlet />
+    </>
   ),
-})
+});
