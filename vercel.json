@@ -1,5 +1,6 @@
-<tool_call:default_api:codeGenerate{language:json,prompt:Gere o código para o arquivo vercel.json (na raiz do projeto) para corrigir o erro de build:{
-"rewrites": [
-{ "source": "/(.*)", "destination": "/" }
-]
-}} />
+{
+  "version": 2,
+  "builds": [
+    { "src": "package.json", "use": "@vercel/next" }
+  ]
+}
