@@ -1,10 +1,1 @@
-import { createFileRoute } from '@tanstack/react-router'
-
-export const Route = createFileRoute('/patient/$patientId')({
-  component: () => (
-    <div style={{ padding: '20px', color: 'white', background: '#0f172a', height: '100vh' }}>
-      <h2>📋 Ficha do Paciente Noosférico</h2>
-      <p>Sincronizando dados vitais com a rede de cura...</p>
-    </div>
-  ),
-})
+[{"fileName": "router.tsx", "language": "typescript", "generatedCode": "import { createRouter as createTanStackRouter } from '@tanstack/react-router'\nimport { routeTree } from './routeTree.gen'\n\nexport function createRouter() {\n  return createTanStackRouter({\n    routeTree,\n  })\n}\n\nexport const getRouter = createRouter\n\ndeclare module '@tanstack/react-router' {\n  interface Register {\n    router: ReturnType<typeof createRouter>\n  }\n}"}, {"fileName": "patient.$patientId.tsx", "language": "typescript", "generatedCode": "import { createFileRoute } from '@tanstack/react-router'\n\nexport const Route = createFileRoute('/patient/$patientId')({\n  component: () => (\n    <div style={{ padding: '20px', color: 'white', background: '#0f172a', height: '100vh' }}>\n      <h2>📋 Ficha do Paciente Noosférico</h2>\n      <p>Sincronizando dados vitais com a rede de cura...</p>\n    </div>\n  ),\n})"}, {"fileName": "session.$patientId.tsx", "language": "typescript", "generatedCode": "import { createFileRoute } from '@tanstack/react-router'\n\nexport const Route = createFileRoute('/session/$patientId')({\n  component: () => (\n    <div style={{ padding: '20px', color: 'white', background: '#0f172a', height: '100vh' }}>\n      <h2>🧘 Sessão de Harmonização</h2>\n      <p>Iniciando protocolo de cura vibracional na Noosfera...</p>\n    </div>\n  ),\n})"}]
