@@ -1,12 +1,12 @@
-<tool_call:default_api:codeGenerate{language:html,prompt:Substitua o conteúdo do arquivo index.html por este código para abrir o portal MentorND e corrigir o erro de tela branca:<!DOCTYPE html>
-  
-    
-    
-    MentorND
-  
-  
-    
-    
-    
-  
-} />
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MentorND</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/entry-client.tsx"></script>
+  </body>
+</html>
