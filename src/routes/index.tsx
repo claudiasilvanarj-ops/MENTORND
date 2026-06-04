@@ -1,5 +1,4 @@
 
-i// src/routes/index.tsx
 export default function Home() {
   return (
     <div style={{ textAlign: "center", marginTop: "50px" }}>
@@ -8,3 +7,4 @@ export default function Home() {
     </div>
   )
 }
+
