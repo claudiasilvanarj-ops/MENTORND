@@ -1,4 +1,4 @@
-<tool_call:default_api:codeGenerate{language:json,prompt:Gere o código para o arquivo vercel.json (na raiz do projeto) para corrigir o erro de build:{
+<tool_call:default_api:codeGenerate{language:json,prompt:Gere o código LIMPO para o arquivo vercel.json:{
 "rewrites": [
 { "source": "/(.*)", "destination": "/" }
 ]
