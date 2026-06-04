@@ -1,7 +1,5 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist/server",
-  "framework": "vite",
-  "functionErrorRegex": "^error\\[",
-  "serverlessFunctionRegion": "iad1"
+  "installCommand": "npm ci"
 }
