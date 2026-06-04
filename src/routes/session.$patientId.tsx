@@ -1,16 +1,10 @@
-import { createFileRoute } from '@tanstack/react-router';
+import { createFileRoute } from '@tanstack/react-router'
 
 export const Route = createFileRoute('/session/$patientId')({
-  component: SessionPage,
-});
-
-function SessionPage() {
-  const { patientId } = Route.useParams();
-
-  return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold">Sessão do Paciente</h1>
-      <p>ID do Paciente: {patientId}</p>
+  component: () => (
+    <div style={{ padding: '20px', color: 'white', background: '#0f172a', height: '100vh' }}>
+      <h2>🧘 Sessão de Harmonização</h2>
+      <p>Iniciando protocolo de cura vibracional na Noosfera...</p>
     </div>
-  );
-}           
+  ),
+})
