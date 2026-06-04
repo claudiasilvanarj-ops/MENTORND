@@ -1,10 +1,20 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": ".",
+  "outputDirectory": "dist",
+  "public": "dist/client",
+  "functions": {
+    "api/index.ts": {
+      "runtime": "nodejs20.x"
+    }
+  },
   "rewrites": [
     {
+      "source": "/dist/client/(.*)",
+      "destination": "/dist/client/$1"
+    },
+    {
       "source": "/(.*)",
-      "destination": "/dist/server/index.js"
+      "destination": "/api"
     }
   ]
 }
