@@ -1,6 +1,5 @@
-{
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
-  ]
-}
-
+<tool_call:default_api:codeGenerate{language:json,prompt:Gere o código para o arquivo vercel.json (na raiz do projeto) para corrigir o erro de build:{
+"rewrites": [
+{ "source": "/(.*)", "destination": "/" }
+]
+}} />
