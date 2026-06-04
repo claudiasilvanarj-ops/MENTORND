@@ -1,6 +1,5 @@
-
 "scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start"
+  "dev": "vite dev",
+  "build": "vite build",
+  "preview": "vite preview"
 }
