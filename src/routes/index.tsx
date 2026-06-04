@@ -27,3 +27,7 @@ borderRadius: '15px',
 backgroundColor: 'rgba(74, 74, 226, 0.1)'
 }}>
 Status: Conexão em Alta Integridade
+
+
+)
+}} />
