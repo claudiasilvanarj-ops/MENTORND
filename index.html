@@ -7,14 +7,15 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="bg-gray-50 font-sans">
+<body class="bg-gray-50 font-sans text-gray-900">
 <div id="toast" class="hidden fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 text-sm"></div>
-<aside class="fixed w-64 h-screen bg-white border-r flex flex-col">
-<div class="p-6">
+<!-- SIDEBAR -->
+<aside class="fixed w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
+<div class="p-6 border-b border-gray-100">
 <h1 class="text-purple-700 font-bold text-xl">Mentor ND</h1>
-<p class="text-xs text-gray-400">Transceptor Noosférico</p>
+<p class="text-xs text-gray-400 uppercase tracking-wider">Transceptor Noosférico</p>
 </div>
-<nav class="flex-1 px-4 space-y-1">
+<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
 <a href="#" class="block px-4 py-2 rounded-lg bg-purple-50 text-purple-700 font-medium">Painel</a>
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Pacientes</a>
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Frequências</a>
@@ -30,137 +31,119 @@
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Ficha Técnica</a>
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Documentação</a>
 </nav>
-<div class="p-4 text-xs text-gray-400 border-t">claudia.silvana.rj@gmail.com</div>
+<div class="p-4 border-t border-gray-100 text-xs text-gray-400">claudia.silvana.rj@gmail.com</div>
 </aside>
-
-<header class="sticky top-0 bg-white border-b px-8 py-4 flex justify-between items-center z-10 ml-64">
+<!-- HEADER -->
+<header class="sticky top-0 bg-white border-b border-gray-200 ml-64 px-8 py-4 flex justify-between items-center z-10">
 <div>
 <h2 class="font-bold text-lg">Painel Vibracional</h2>
 <p class="text-sm text-gray-500">Visão geral do consultório</p>
 </div>
 <div class="flex items-center gap-3">
 <span class="text-xs text-gray-400">Previewing last saved version /dashboard</span>
-<button class="px-4 py-2 text-sm border rounded-lg">Share</button>
-<button class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg">Upgrade</button>
-<button class="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg">Publish</button>
+<button class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50">Share</button>
+<button class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg hover:bg-gray-800">Upgrade</button>
+<button class="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700">Publish</button>
 </div>
 </header>
-
+<!-- MAIN -->
 <main class="ml-64 p-8">
 <div class="grid grid-cols-3 gap-6 mb-8">
-<div class="bg-white p-6 rounded-xl border shadow-sm">
+<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
 <p class="text-sm text-gray-500">Pacientes</p>
 <p class="text-3xl font-bold mt-1">24</p>
 </div>
-<div class="bg-white p-6 rounded-xl border shadow-sm">
+<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
 <p class="text-sm text-gray-500">Sessões registradas</p>
 <p class="text-3xl font-bold mt-1">28</p>
 </div>
-<div class="bg-white p-6 rounded-xl border shadow-sm">
+<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
 <p class="text-sm text-gray-500">AM médio</p>
 <p class="text-3xl font-bold mt-1 text-green-600">8.4% ↑</p>
 </div>
 </div>
 <div class="grid grid-cols-3 gap-6">
-<div class="col-span-2 bg-white p-6 rounded-xl border shadow-sm">
-<h3 class="font-bold">Sincronização com Schumann (7,83 Hz)</h3>
+<div class="col-span-2 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+<h3 class="font-bold mb-2">Sincronização com Schumann (7,83 Hz)</h3>
 <p class="text-sm text-gray-500 mb-4">Ressonância base planetária × frequência vibracional média por sessão · Sincronia atual: 67.8%</p>
 <canvas id="schumannChart" class="h-48 w-full"></canvas>
 </div>
-<div class="bg-white p-6 rounded-xl border shadow-sm">
+<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
 <h3 class="font-bold mb-4">Iniciar uma sessão</h3>
 <p class="text-sm text-gray-600 mb-6">Aplique um pleito e registre baseline / after.</p>
-<button onclick="openModal('modalPacientes')" class="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold">Selecionar paciente</button>
-<button onclick="openModal('modalHistorico')" class="w-full py-3 rounded-lg border border-purple-600 text-purple-600 font-bold mt-2">Ver histórico clínico</button>
+<button onclick="openModal('modalPacientes')" class="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold hover:opacity-90">Selecionar paciente</button>
+<button onclick="openModal('modalHistorico')" class="w-full py-3 rounded-lg border border-purple-600 text-purple-600 font-bold mt-2 hover:bg-purple-50">Ver histórico clínico</button>
 </div>
 </div>
 </main>
-
+<!-- MODAL PACIENTES -->
 <div id="modalPacientes" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto">
-<h3 class="font-bold mb-4 text-lg">Selecionar Paciente</h3>
-<div class="space-y-1">
-<button onclick="selecionarPaciente('Pamela Cristina Azevedo de Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Pamela Cristina Azevedo de Oliveira <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Lúcio Ribeiro')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Lúcio Ribeiro <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Iclea Beiral Forni')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Iclea Beiral Forni <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Vilma')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Vilma <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Anna Livian Mendonça do Vale')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Anna Livian Mendonça do Vale <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Emília Paula Guimarães de Mello Alves')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Emília Paula Guimarães de Mello Alves <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Derli José Mendes')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Derli José Mendes <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Cristina Helena Sales Pereira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Cristina Helena Sales Pereira <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Gabrielle Pereira Martins')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Gabrielle Pereira Martins <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Maria Celia Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Maria Celia Oliveira <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Rosimar Aparecida Martins Pereira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Rosimar Aparecida Martins Pereira <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Sophia Aurora Barroso de Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Sophia Aurora Barroso de Oliveira <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Ana Luiza Mouzinho Associacao')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Ana Luiza Mouzinho Associacao <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Andrea Venezuela Campos')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Andrea Venezuela Campos <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Marcos Vinicios dos Santos de Sá')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Marcos Vinicios dos Santos de Sá <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Alexandre Loureiro Costa')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Alexandre Loureiro Costa <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Greice Damião de Assis')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Greice Damião de Assis <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Adriana Grissela Rodrigues e Rodrigues')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Adriana Grissela Rodrigues e Rodrigues <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Maria Márcia Carneiro da Silva')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Maria Márcia Carneiro da Silva <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Mariane Fátima Brazao')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Mariane Fátima Brazao <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Anna Luuza Fonseca Miranda')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Anna Luuza Fonseca Miranda <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Angela Morgado Lima')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Angela Morgado Lima <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Arthur Domingo Pires Augusto')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Arthur Domingo Pires Augusto <span class="text-purple-400">→</span></button>
-<button onclick="selecionarPaciente('Raiane de Lemos Alves')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Raiane de Lemos Alves <span class="text-purple-400">→</span></button>
-</div>
-<button onclick="closeModal('modalPacientes')" class="mt-4 w-full bg-gray-200 py-2 rounded-lg">Fechar</button>
+<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto shadow-xl">
+<h3 class="font-bold text-lg mb-4">Selecionar Paciente</h3>
+<div id="listaPacientes" class="space-y-1"></div>
+<button onclick="closeModal('modalPacientes')" class="mt-4 w-full py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Fechar</button>
 </div>
 </div>
-
+<!-- MODAL HISTORICO -->
 <div id="modalHistorico" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto">
-<h3 class="font-bold mb-4 text-lg">Histórico Clínico</h3>
-<div class="space-y-2 text-sm">
-<div>09/06 - Pamela Cristina Azevedo de Oliveira - 7.8Hz</div>
-<div>06/06 - Lúcio Ribeiro - 8.2Hz</div>
-<div>06/06 - Iclea Beiral Forni - 7.5Hz</div>
-<div>06/06 - Vilma - 7.9Hz</div>
-<div>27/05 - Anna Livian Mendonça do Vale - 7.3Hz</div>
-<div>24/05 - Emília Paula Guimarães de Mello Alves - 8.1Hz</div>
-<div>24/05 - Derli José Mendes - 7.7Hz</div>
-<div>23/05 - Cristina Helena Sales Pereira - 8.4Hz</div>
-<div>20/05 - Gabrielle Pereira Martins - 7.6Hz</div>
-<div>17/05 - Maria Celia Oliveira - 8.0Hz</div>
-<div>17/05 - Rosimar Aparecida Martins Pereira - 7.8Hz</div>
-<div>17/05 - Sophia Aurora Barroso de Oliveira - 7.2Hz</div>
-<div>16/05 - Ana Luiza Mouzinho Associacao - 8.3Hz</div>
-<div>16/05 - Andrea Venezuela Campos - 7.5Hz</div>
-<div>16/05 - Marcos Vinicios dos Santos de Sá - 8.1Hz</div>
-<div>16/05 - Alexandre Loureiro Costa - 7.9Hz</div>
-<div>16/05 - Greice Damião de Assis - 8.5Hz</div>
-<div>16/05 - Adriana Grissela Rodrigues e Rodrigues - 7.7Hz</div>
-<div>16/05 - Maria Márcia Carneiro da Silva - 8.2Hz</div>
-<div>16/05 - Mariane Fátima Brazao - 7.4Hz</div>
-<div>16/05 - Anna Luuza Fonseca Miranda - 8.6Hz</div>
-<div>16/05 - Angela Morgado Lima - 7.8Hz</div>
-<div>13/05 - Arthur Domingo Pires Augusto - 7.1Hz</div>
-<div>13/05 - Raiane de Lemos Alves - 8.0Hz</div>
-</div>
-<button onclick="closeModal('modalHistorico')" class="mt-4 w-full bg-gray-200 py-2 rounded-lg">Fechar</button>
+<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto shadow-xl">
+<h3 class="font-bold text-lg mb-4">Histórico Clínico</h3>
+<div id="listaHistorico" class="space-y-1 text-sm"></div>
+<button onclick="closeModal('modalHistorico')" class="mt-4 w-full py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Fechar</button>
 </div>
 </div>
-
+<!-- TOAST -->
+<div id="toast" class="hidden fixed top-5 right-5 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 text-sm font-medium"></div>
 <script>
+// Dados dos pacientes
+const pacientes = ["Pamela Cristina Azevedo de Oliveira","Lúcio Ribeiro","Iclea Beiral Forni","Vilma","Anna Livian Mendonça do Vale","Emília Paula Guimarães de Mello Alves","Derli José Mendes","Cristina Helena Sales Pereira","Gabrielle Pereira Martins","Maria Celia Oliveira","Rosimar Aparecida Martins Pereira","Sophia Aurora Barroso de Oliveira","Ana Luiza Mouzinho Associacao","Andrea Venezuela Campos","Marcos Vinicios dos Santos de Sá","Alexandre Loureiro Costa","Greice Damião de Assis","Adriana Grissela Rodrigues e Rodrigues","Maria Márcia Carneiro da Silva","Mariane Fátima Brazao","Anna Luuza Fonseca Miranda","Angela Morgado Lima","Arthur Domingo Pires Augusto","Raiane de Lemos Alves"];
+const historico = ["09/06 - Pamela Cristina Azevedo de Oliveira - 7.8Hz","06/06 - Lúcio Ribeiro - 8.2Hz","06/06 - Iclea Beiral Forni - 7.5Hz","06/06 - Vilma - 7.9Hz","27/05 - Anna Livian Mendonça do Vale - 7.3Hz","24/05 - Emília Paula Guimarães de Mello Alves - 8.1Hz","24/05 - Derli José Mendes - 7.7Hz","23/05 - Cristina Helena Sales Pereira - 8.4Hz","20/05 - Gabrielle Pereira Martins - 7.6Hz","17/05 - Maria Celia Oliveira - 8.0Hz","17/05 - Rosimar Aparecida Martins Pereira - 7.8Hz","17/05 - Sophia Aurora Barroso de Oliveira - 7.2Hz","16/05 - Ana Luiza Mouzinho Associacao - 8.3Hz","16/05 - Andrea Venezuela Campos - 7.5Hz","16/05 - Marcos Vinicios dos Santos de Sá - 8.1Hz","16/05 - Alexandre Loureiro Costa - 7.9Hz","16/05 - Greice Damião de Assis - 8.5Hz","16/05 - Adriana Grissela Rodrigues e Rodrigues - 7.7Hz","16/05 - Maria Márcia Carneiro da Silva - 8.2Hz","16/05 - Mariane Fátima Brazao - 7.4Hz","16/05 - Anna Luuza Fonseca Miranda - 8.6Hz","16/05 - Angela Morgado Lima - 7.8Hz","13/05 - Arthur Domingo Pires Augusto - 7.1Hz","13/05 - Raiane de Lemos Alves - 8.0Hz"];
+// Inicialização
+document.addEventListener('DOMContentLoaded', function() {
+const container = document.getElementById('listaPacientes');
+pacientes.forEach(function(nome) {
+const btn = document.createElement('button');
+btn.className = 'w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center';
+btn.onclick = function() { selecionarPaciente(nome); };
+btn.innerHTML = nome + ' <span class="text-purple-400">→</span>';
+container.appendChild(btn);
+});
+const histContainer = document.getElementById('listaHistorico');
+historico.forEach(function(item) {
+const div = document.createElement('div');
+div.className = 'p-2 border-b border-gray-100';
+div.textContent = item;
+histContainer.appendChild(div);
+});
+// Chart.js
+new Chart(document.getElementById('schumannChart'), {
+type: 'line',
+data: {
+labels: ['13/05','16/05','17/05','20/05','23/05','27/05','06/06','09/06'],
+datasets: [{
+data: [62,65,68,70,72,75,78,80],
+borderColor: '#9333ea',
+tension: 0.4,
+pointBackgroundColor: '#9333ea'
+}]
+},
+options: {
+plugins: { legend: { display: false } },
+scales: { y: { min: 55, max: 85 } }
+}
+});
+});
+// Funções
 function selecionarPaciente(nome) {
-document.getElementById('modalPacientes').classList.add('hidden');
+closeModal('modalPacientes');
 const t = document.getElementById('toast');
 t.textContent = '✅ ' + nome + ' selecionado(a)';
 t.classList.remove('hidden');
-setTimeout(() => t.classList.add('hidden'), 3000);
+setTimeout(function() { t.classList.add('hidden'); }, 3000);
 }
 function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
 function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
-const ctx = document.getElementById('schumannChart').getContext('2d');
-new Chart(ctx, {
-type: 'line',
-data: {
-labels: ['13/05','16/05','17/05','20/05','23/05','24/05','27/05','06/06','09/06'],
-datasets: [{data: [7.2,8.1,7.9,8.5,7.8,9.2,8.4,7.6,8.0],borderColor:'#9333ea',tension:0.4}]
-},
-options: {scales:{y:{min:6.5,max:9.5}},plugins:{legend:{display:false}}}
-});
 </script>
 </body>
 </html>
+
