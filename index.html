@@ -8,14 +8,12 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="bg-gray-50 font-sans text-gray-900">
-<div id="toast" class="hidden fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 text-sm"></div>
-<!-- SIDEBAR -->
-<aside class="fixed w-64 h-screen bg-white border-r border-gray-200 flex flex-col">
-<div class="p-6 border-b border-gray-100">
+<aside class="fixed w-64 h-screen bg-white border-r flex flex-col">
+<div class="p-6">
 <h1 class="text-purple-700 font-bold text-xl">Mentor ND</h1>
-<p class="text-xs text-gray-400 uppercase tracking-wider">Transceptor Noosférico</p>
+<p class="text-xs text-gray-400">Transceptor Noosférico</p>
 </div>
-<nav class="flex-1 px-4 py-4 space-y-1 overflow-y-auto">
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto">
 <a href="#" class="block px-4 py-2 rounded-lg bg-purple-50 text-purple-700 font-medium">Painel</a>
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Pacientes</a>
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Frequências</a>
@@ -31,119 +29,143 @@
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Ficha Técnica</a>
 <a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Documentação</a>
 </nav>
-<div class="p-4 border-t border-gray-100 text-xs text-gray-400">claudia.silvana.rj@gmail.com</div>
+<div class="p-4 text-xs text-gray-400 border-t">claudia.silvana.rj@gmail.com</div>
 </aside>
-<!-- HEADER -->
-<header class="sticky top-0 bg-white border-b border-gray-200 ml-64 px-8 py-4 flex justify-between items-center z-10">
+<header class="sticky top-0 bg-white border-b ml-64 px-8 py-4 flex justify-between items-center z-10">
 <div>
 <h2 class="font-bold text-lg">Painel Vibracional</h2>
 <p class="text-sm text-gray-500">Visão geral do consultório</p>
 </div>
 <div class="flex items-center gap-3">
-<span class="text-xs text-gray-400">Previewing last saved version /dashboard</span>
-<button class="px-4 py-2 text-sm border border-gray-300 rounded-lg hover:bg-gray-50">Share</button>
-<button class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg hover:bg-gray-800">Upgrade</button>
-<button class="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg hover:bg-purple-700">Publish</button>
+<button class="px-4 py-2 text-sm border rounded-lg">Share</button>
+<button class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg">Upgrade</button>
+<button class="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg">Publish</button>
 </div>
 </header>
-<!-- MAIN -->
 <main class="ml-64 p-8">
 <div class="grid grid-cols-3 gap-6 mb-8">
-<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+<div class="bg-white p-6 rounded-xl border shadow-sm">
 <p class="text-sm text-gray-500">Pacientes</p>
 <p class="text-3xl font-bold mt-1">24</p>
 </div>
-<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+<div class="bg-white p-6 rounded-xl border shadow-sm">
 <p class="text-sm text-gray-500">Sessões registradas</p>
 <p class="text-3xl font-bold mt-1">28</p>
 </div>
-<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+<div class="bg-white p-6 rounded-xl border shadow-sm">
 <p class="text-sm text-gray-500">AM médio</p>
 <p class="text-3xl font-bold mt-1 text-green-600">8.4% ↑</p>
 </div>
 </div>
 <div class="grid grid-cols-3 gap-6">
-<div class="col-span-2 bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
-<h3 class="font-bold mb-2">Sincronização com Schumann (7,83 Hz)</h3>
-<p class="text-sm text-gray-500 mb-4">Ressonância base planetária × frequência vibracional média por sessão · Sincronia atual: 67.8%</p>
+<div class="col-span-2 bg-white p-6 rounded-xl border shadow-sm">
+<h3 class="font-bold">Sincronização com Schumann (7,83 Hz)</h3>
+<p class="text-sm text-gray-500 mb-4">Ressonância base planetária × frequência vibracional média por sessão</p>
 <canvas id="schumannChart" class="h-48 w-full"></canvas>
 </div>
-<div class="bg-white p-6 rounded-xl border border-gray-200 shadow-sm">
+<div class="bg-white p-6 rounded-xl border shadow-sm">
 <h3 class="font-bold mb-4">Iniciar uma sessão</h3>
 <p class="text-sm text-gray-600 mb-6">Aplique um pleito e registre baseline / after.</p>
-<button onclick="openModal('modalPacientes')" class="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold hover:opacity-90">Selecionar paciente</button>
-<button onclick="openModal('modalHistorico')" class="w-full py-3 rounded-lg border border-purple-600 text-purple-600 font-bold mt-2 hover:bg-purple-50">Ver histórico clínico</button>
+<button onclick="toggleModal('modalPacientes', true)" class="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold">Selecionar paciente</button>
+<button onclick="toggleModal('modalHistorico', true)" class="w-full py-3 rounded-lg border border-purple-600 text-purple-600 font-bold mt-2">Ver histórico clínico</button>
 </div>
 </div>
 </main>
-<!-- MODAL PACIENTES -->
+
 <div id="modalPacientes" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto shadow-xl">
+<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto">
 <h3 class="font-bold text-lg mb-4">Selecionar Paciente</h3>
 <div id="listaPacientes" class="space-y-1"></div>
-<button onclick="closeModal('modalPacientes')" class="mt-4 w-full py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Fechar</button>
+<button onclick="toggleModal('modalPacientes', false)" class="mt-4 w-full py-2 bg-gray-100 rounded-lg">Fechar</button>
 </div>
 </div>
-<!-- MODAL HISTORICO -->
+
+<div id="modalFicha" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div id="fichaContent" class="bg-white p-8 rounded-xl w-96 max-h-[80vh] overflow-y-auto"></div>
+</div>
+
 <div id="modalHistorico" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto shadow-xl">
+<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto">
 <h3 class="font-bold text-lg mb-4">Histórico Clínico</h3>
-<div id="listaHistorico" class="space-y-1 text-sm"></div>
-<button onclick="closeModal('modalHistorico')" class="mt-4 w-full py-2 bg-gray-100 rounded-lg hover:bg-gray-200">Fechar</button>
+<div id="listaHistorico" class="space-y-2 text-sm"></div>
+<button onclick="toggleModal('modalHistorico', false)" class="mt-4 w-full py-2 bg-gray-100 rounded-lg">Fechar</button>
 </div>
 </div>
-<!-- TOAST -->
-<div id="toast" class="hidden fixed top-5 right-5 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 text-sm font-medium"></div>
+
 <script>
-// Dados dos pacientes
-const pacientes = ["Pamela Cristina Azevedo de Oliveira","Lúcio Ribeiro","Iclea Beiral Forni","Vilma","Anna Livian Mendonça do Vale","Emília Paula Guimarães de Mello Alves","Derli José Mendes","Cristina Helena Sales Pereira","Gabrielle Pereira Martins","Maria Celia Oliveira","Rosimar Aparecida Martins Pereira","Sophia Aurora Barroso de Oliveira","Ana Luiza Mouzinho Associacao","Andrea Venezuela Campos","Marcos Vinicios dos Santos de Sá","Alexandre Loureiro Costa","Greice Damião de Assis","Adriana Grissela Rodrigues e Rodrigues","Maria Márcia Carneiro da Silva","Mariane Fátima Brazao","Anna Luuza Fonseca Miranda","Angela Morgado Lima","Arthur Domingo Pires Augusto","Raiane de Lemos Alves"];
+const pacientes = [
+{nome:"Pamela Cristina Azevedo de Oliveira",tel:"21995902211",idade:30,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Lúcio Ribeiro",tel:"21987037102",idade:72,genero:"Masculino",queixas:"Dor pescoço, dor ombro",medicamentos:""},
+{nome:"Iclea Beiral Forni",tel:"21995902211",idade:60,genero:"Feminino",queixas:"Cancer",medicamentos:""},
+{nome:"Vilma",tel:"21964292307",idade:68,genero:"Feminino",queixas:"Labirintos, diverticulite, coluna",medicamentos:""},
+{nome:"Anna Livian Mendonça do Vale",tel:"21963292307",idade:13,genero:"Feminino",queixas:"Fechada no quarto",medicamentos:""},
+{nome:"Emília Paula Guimarães de Mello Alves",tel:"21997397327",idade:69,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Derli José Mendes",tel:"21964292307",idade:62,genero:"Masculino",queixas:"",medicamentos:""},
+{nome:"Cristina Helena Sales Pereira",tel:"21964292307",idade:53,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Gabrielle Pereira Martins",tel:"6492467331",idade:25,genero:"Feminino",queixas:"Endometriose, obesidade, fibromialgia",medicamentos:"Pregabalina, trazodona, quetiapina"},
+{nome:"Maria Celia Oliveira",tel:"21964292307",idade:63,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Rosimar Aparecida Martins Pereira",tel:"21964292307",idade:53,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Sophia Aurora Barroso de Oliveira",tel:"21964292307",idade:0,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Ana Luiza Mouzinho Associacao",tel:"5521978166867",idade:43,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Andrea Venezuela Campos",tel:"21980126530",idade:44,genero:"Feminino",queixas:"Ciatico",medicamentos:""},
+{nome:"Marcos Vinicios dos Santos de Sá",tel:"21995902211",idade:61,genero:"Masculino",queixas:"Abdômen, sistema respiratório",medicamentos:""},
+{nome:"Alexandre Loureiro Costa",tel:"21996006388",idade:44,genero:"Masculino",queixas:"",medicamentos:""},
+{nome:"Greice Damião de Assis",tel:"21993165400",idade:65,genero:"Feminino",queixas:"Gastrite",medicamentos:""},
+{nome:"Adriana Grissela Rodrigues e Rodrigues",tel:"21988568436",idade:56,genero:"Feminino",queixas:"Sangue, hipotireoidismo",medicamentos:""},
+{nome:"Maria Márcia Carneiro da Silva",tel:"21997076050",idade:59,genero:"Feminino",queixas:"Mioma",medicamentos:""},
+{nome:"Mariane Fátima Brazao",tel:"21993997159",idade:73,genero:"Feminino",queixas:"Glicose",medicamentos:""},
+{nome:"Anna Luuza Fonseca Miranda",tel:"21997666801",idade:48,genero:"Feminino",queixas:"",medicamentos:""},
+{nome:"Angela Morgado Lima",tel:"21974649797",idade:66,genero:"Feminino",queixas:"Estomago",medicamentos:""},
+{nome:"Arthur Domingo Pires Augusto",tel:"21964292307",idade:6,genero:"Masculino",queixas:"Autismo, agitação",medicamentos:""},
+{nome:"Raiane de Lemos Alves",tel:"21964292307",idade:28,genero:"Feminino",queixas:"",medicamentos:""}
+];
 const historico = ["09/06 - Pamela Cristina Azevedo de Oliveira - 7.8Hz","06/06 - Lúcio Ribeiro - 8.2Hz","06/06 - Iclea Beiral Forni - 7.5Hz","06/06 - Vilma - 7.9Hz","27/05 - Anna Livian Mendonça do Vale - 7.3Hz","24/05 - Emília Paula Guimarães de Mello Alves - 8.1Hz","24/05 - Derli José Mendes - 7.7Hz","23/05 - Cristina Helena Sales Pereira - 8.4Hz","20/05 - Gabrielle Pereira Martins - 7.6Hz","17/05 - Maria Celia Oliveira - 8.0Hz","17/05 - Rosimar Aparecida Martins Pereira - 7.8Hz","17/05 - Sophia Aurora Barroso de Oliveira - 7.2Hz","16/05 - Ana Luiza Mouzinho Associacao - 8.3Hz","16/05 - Andrea Venezuela Campos - 7.5Hz","16/05 - Marcos Vinicios dos Santos de Sá - 8.1Hz","16/05 - Alexandre Loureiro Costa - 7.9Hz","16/05 - Greice Damião de Assis - 8.5Hz","16/05 - Adriana Grissela Rodrigues e Rodrigues - 7.7Hz","16/05 - Maria Márcia Carneiro da Silva - 8.2Hz","16/05 - Mariane Fátima Brazao - 7.4Hz","16/05 - Anna Luuza Fonseca Miranda - 8.6Hz","16/05 - Angela Morgado Lima - 7.8Hz","13/05 - Arthur Domingo Pires Augusto - 7.1Hz","13/05 - Raiane de Lemos Alves - 8.0Hz"];
-// Inicialização
-document.addEventListener('DOMContentLoaded', function() {
-const container = document.getElementById('listaPacientes');
-pacientes.forEach(function(nome) {
-const btn = document.createElement('button');
+function toggleModal(id, show){document.getElementById(id).style.display=show?'flex':'none';}
+function abrirFicha(p){
+var iniciais = p.nome.split(' ').map(function(n){return n[0]}).join('').substring(0,2).toUpperCase();
+var q = p.queixas ? '<p class="mt-2"><strong>Queixas:</strong> '+p.queixas+'</p>' : '<p class="mt-2 text-gray-400">Nenhuma queixa registrada</p>';
+var m = p.medicamentos ? '<p class="mt-1"><strong>Medicamentos:</strong> '+p.medicamentos+'</p>' : '<p class="mt-1 text-gray-400">Nenhum medicamento</p>';
+document.getElementById('fichaContent').innerHTML =
+'<div class="flex flex-col items-center">'+
+'<div class="w-20 h-20 bg-purple-200 rounded-full flex items-center justify-center text-2xl font-bold text-purple-700 mb-4">'+iniciais+'</div>'+
+'<h3 class="text-xl font-bold text-center">'+p.nome+'</h3>'+
+'<p class="text-sm text-gray-500">'+p.tel+'</p>'+
+'<p class="text-sm text-gray-600">'+p.idade+' anos · '+p.genero+'</p>'+
+'<div class="w-full mt-4 p-4 bg-gray-50 rounded-lg">'+q+m+'</div>'+
+'<div class="grid grid-cols-2 gap-2 mt-6 w-full">'+
+'<button class="py-2 bg-teal-600 text-white rounded-lg text-sm font-medium">Nova sessão</button>'+
+'<button class="py-2 border border-purple-600 text-purple-600 rounded-lg text-sm font-medium">Histórico</button>'+
+'<button class="py-2 border border-gray-300 rounded-lg text-sm">Editar</button>'+
+'<button class="py-2 bg-purple-600 text-white rounded-lg text-sm font-medium">Relatório</button>'+
+'</div>'+
+'<button onclick="toggleModal(\'modalFicha\', false)" class="mt-4 text-sm text-gray-400 hover:text-gray-600">Fechar</button>'+
+'</div>';
+toggleModal('modalPacientes', false);
+toggleModal('modalFicha', true);
+}
+document.addEventListener('DOMContentLoaded', function(){
+var list = document.getElementById('listaPacientes');
+pacientes.forEach(function(p){
+var btn = document.createElement('button');
 btn.className = 'w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center';
-btn.onclick = function() { selecionarPaciente(nome); };
-btn.innerHTML = nome + ' <span class="text-purple-400">→</span>';
-container.appendChild(btn);
+btn.innerHTML = p.nome + ' <span class="text-purple-400">→</span>';
+btn.onclick = function(){abrirFicha(p);};
+list.appendChild(btn);
 });
-const histContainer = document.getElementById('listaHistorico');
-historico.forEach(function(item) {
-const div = document.createElement('div');
+var hl = document.getElementById('listaHistorico');
+historico.forEach(function(item){
+var div = document.createElement('div');
 div.className = 'p-2 border-b border-gray-100';
 div.textContent = item;
-histContainer.appendChild(div);
+hl.appendChild(div);
 });
-// Chart.js
 new Chart(document.getElementById('schumannChart'), {
-type: 'line',
-data: {
-labels: ['13/05','16/05','17/05','20/05','23/05','27/05','06/06','09/06'],
-datasets: [{
-data: [62,65,68,70,72,75,78,80],
-borderColor: '#9333ea',
-tension: 0.4,
-pointBackgroundColor: '#9333ea'
-}]
-},
-options: {
-plugins: { legend: { display: false } },
-scales: { y: { min: 55, max: 85 } }
-}
+type:'line',
+data:{labels:['13/05','16/05','17/05','20/05','23/05','27/05','06/06','09/06'],
+datasets:[{data:[62,65,68,70,72,75,78,80],borderColor:'#9333ea',tension:0.4}]},
+options:{plugins:{legend:{display:false}},scales:{y:{min:55,max:85}}}
 });
 });
-// Funções
-function selecionarPaciente(nome) {
-closeModal('modalPacientes');
-const t = document.getElementById('toast');
-t.textContent = '✅ ' + nome + ' selecionado(a)';
-t.classList.remove('hidden');
-setTimeout(function() { t.classList.add('hidden'); }, 3000);
-}
-function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
-function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 </script>
 </body>
 </html>
-
