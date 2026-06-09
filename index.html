@@ -1,1 +1,166 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Mentor ND | Painel Vibracional</title><script src="https://cdn.tailwindcss.com"></script><script src="https://cdn.jsdelivr.net/npm/chart.js"></script></head><body class="bg-gray-50 font-sans"><aside class="fixed w-64 h-screen bg-white border-r flex flex-col"><div class="p-6"><h1 class="text-purple-700 font-bold text-xl">Mentor ND</h1><p class="text-xs text-gray-400">Transceptor Noosférico</p></div><nav class="flex-1 px-4 space-y-1"><a href="#" class="block px-4 py-2 rounded-lg bg-purple-50 text-purple-700 font-medium">Painel</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Pacientes</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Frequências</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Tocador Quântico</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Cores da Aura</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Aura pelo Nome</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Problemas Físicos</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Protocolo Noosférico</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Luto Emocional</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Chakra Umbilical</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Histórico</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Relatório Geral</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Ficha Técnica</a><a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Documentação</a></nav><div class="p-4 text-xs text-gray-500">claudia.silvana.rj@gmail.com</div></aside><header class="sticky top-0 bg-white border-b ml-64 p-6 flex justify-between items-center z-10"><div><h2 class="font-bold text-lg">Painel Vibracional</h2><p class="text-sm text-gray-500">Visão geral do consultório</p></div><div class="space-x-2"><button class="px-4 py-2 border rounded-lg text-sm">Share</button><button class="px-4 py-2 border rounded-lg text-sm">Upgrade</button><button class="px-4 py-2 bg-purple-700 text-white rounded-lg text-sm">Publish</button></div></header><main class="ml-64 p-8"><div class="grid grid-cols-3 gap-6 mb-8"><div class="bg-white p-6 rounded-xl border shadow-sm"><p class="text-gray-500 text-sm">Pacientes</p><h3 class="text-2xl font-bold">24</h3></div><div class="bg-white p-6 rounded-xl border shadow-sm"><p class="text-gray-500 text-sm">Sessões registradas</p><h3 class="text-2xl font-bold">28</h3></div><div class="bg-white p-6 rounded-xl border shadow-sm"><p class="text-gray-500 text-sm">AM médio</p><h3 class="text-2xl font-bold text-green-600">8.4% ↑</h3></div></div><div class="grid grid-cols-3 gap-6"><div class="col-span-2 bg-white p-6 rounded-xl border shadow-sm"><canvas id="schumannChart"></canvas></div><div class="bg-white p-6 rounded-xl border shadow-sm space-y-4"><h3 class="font-bold">Iniciar uma sessão</h3><button onclick="openModal('modalPacientes')" class="w-full py-3 bg-gradient-to-r from-purple-600 to-indigo-600 text-white rounded-lg">Selecionar paciente</button><button onclick="openModal('modalHistorico')" class="w-full py-3 border border-gray-200 rounded-lg">Ver histórico clínico</button></div></div></main><div id="modalPacientes" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"><div class="bg-white p-8 rounded-xl w-96 max-h-[80vh] overflow-y-auto"><h3 class="font-bold mb-4">Selecionar Paciente</h3><div class="space-y-1"><button onclick="selecionarPaciente('Pamela Cristina Azevedo de Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Pamela Cristina Azevedo de Oliveira →</button><button onclick="selecionarPaciente('Lúcio Ribeiro')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Lúcio Ribeiro →</button><button onclick="selecionarPaciente('Iclea Beiral Forni')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Iclea Beiral Forni →</button><button onclick="selecionarPaciente('Vilma')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Vilma →</button><button onclick="selecionarPaciente('Anna Livian Mendonça do Vale')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Anna Livian Mendonça do Vale →</button><button onclick="selecionarPaciente('Emília Paula Guimarães de Mello Alves')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Emília Paula Guimarães de Mello Alves →</button><button onclick="selecionarPaciente('Derli José Mendes')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Derli José Mendes →</button><button onclick="selecionarPaciente('Cristina Helena Sales Pereira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Cristina Helena Sales Pereira →</button><button onclick="selecionarPaciente('Gabrielle Pereira Martins')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Gabrielle Pereira Martins →</button><button onclick="selecionarPaciente('Maria Celia Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Maria Celia Oliveira →</button><button onclick="selecionarPaciente('Rosimar Aparecida Martins Pereira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Rosimar Aparecida Martins Pereira →</button><button onclick="selecionarPaciente('Sophia Aurora Barroso de Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Sophia Aurora Barroso de Oliveira →</button><button onclick="selecionarPaciente('Ana Luiza Mouzinho Associacao')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Ana Luiza Mouzinho Associacao →</button><button onclick="selecionarPaciente('Andrea Venezuela Campos')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Andrea Venezuela Campos →</button><button onclick="selecionarPaciente('Marcos Vinicios dos Santos de Sá')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Marcos Vinicios dos Santos de Sá →</button><button onclick="selecionarPaciente('Alexandre Loureiro Costa')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Alexandre Loureiro Costa →</button><button onclick="selecionarPaciente('Greice Damião de Assis')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Greice Damião de Assis →</button><button onclick="selecionarPaciente('Adriana Grissela Rodrigues e Rodrigues')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Adriana Grissela Rodrigues e Rodrigues →</button><button onclick="selecionarPaciente('Maria Márcia Carneiro da Silva')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Maria Márcia Carneiro da Silva →</button><button onclick="selecionarPaciente('Mariane Fátima Brazao')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Mariane Fátima Brazao →</button><button onclick="selecionarPaciente('Anna Luuza Fonseca Miranda')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Anna Luuza Fonseca Miranda →</button><button onclick="selecionarPaciente('Angela Morgado Lima')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Angela Morgado Lima →</button><button onclick="selecionarPaciente('Arthur Domingo Pires Augusto')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Arthur Domingo Pires Augusto →</button><button onclick="selecionarPaciente('Raiane de Lemos Alves')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Raiane de Lemos Alves →</button></div><button onclick="closeModal('modalPacientes')" class="mt-6 w-full py-2 bg-gray-100 rounded-lg">Fechar</button></div></div><div id="modalHistorico" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center"><div class="bg-white p-8 rounded-xl w-96 max-h-[80vh] overflow-y-auto"><h3 class="font-bold mb-4">Histórico de Sessões</h3><div class="space-y-2 text-sm"><div>09/06 - Pamela Cristina Azevedo de Oliveira - 7.8Hz</div><div>08/06 - Lúcio Ribeiro - 8.2Hz</div><div>07/06 - Iclea Beiral Forni - 7.9Hz</div><div>06/06 - Vilma - 8.1Hz</div><div>05/06 - Anna Livian Mendonça do Vale - 8.0Hz</div><div>04/06 - Emília Paula Guimarães de Mello Alves - 7.7Hz</div><div>03/06 - Derli José Mendes - 8.3Hz</div><div>02/06 - Cristina Helena Sales Pereira - 7.9Hz</div><div>01/06 - Gabrielle Pereira Martins - 8.0Hz</div><div>31/05 - Maria Celia Oliveira - 8.1Hz</div><div>30/05 - Rosimar Aparecida Martins Pereira - 7.8Hz</div><div>29/05 - Sophia Aurora Barroso de Oliveira - 8.2Hz</div><div>28/05 - Ana Luiza Mouzinho Associacao - 7.9Hz</div><div>27/05 - Andrea Venezuela Campos - 8.0Hz</div><div>26/05 - Marcos Vinicios dos Santos de Sá - 8.1Hz</div><div>25/05 - Alexandre Loureiro Costa - 7.7Hz</div><div>24/05 - Greice Damião de Assis - 8.3Hz</div><div>23/05 - Adriana Grissela Rodrigues e Rodrigues - 7.9Hz</div><div>22/05 - Maria Márcia Carneiro da Silva - 8.0Hz</div><div>21/05 - Mariane Fátima Brazao - 8.1Hz</div><div>20/05 - Anna Luuza Fonseca Miranda - 7.8Hz</div><div>19/05 - Angela Morgado Lima - 8.2Hz</div><div>18/05 - Arthur Domingo Pires Augusto - 7.9Hz</div><div>13/05 - Raiane de Lemos Alves - 8.0Hz</div></div><button onclick="closeModal('modalHistorico')" class="mt-6 w-full py-2 bg-gray-100 rounded-lg">Fechar</button></div></div><div id="toast" class="hidden fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 text-sm"></div><script>function selecionarPaciente(nome) { document.getElementById('modalPacientes').classList.add('hidden'); const t = document.getElementById('toast'); t.textContent = '✅ ' + nome + ' selecionado(a)'; t.classList.remove('hidden'); setTimeout(() => t.classList.add('hidden'), 3000); } function openModal(id) { document.getElementById(id).classList.remove('hidden'); } function closeModal(id) { document.getElementById(id).classList.add('hidden'); } const ctx = document.getElementById('schumannChart').getContext('2d'); new Chart(ctx, { type: 'line', data: { labels: ['13/05', '17/05', '21/05', '25/05', '29/05', '02/06', '06/06', '09/06'], datasets: [{ label: 'Frequência Schumann (Hz)', data: [7.8, 8.0, 7.9, 8.2, 8.1, 7.8, 8.3, 8.0], borderColor: '#7e22ce', tension: 0.4 }] }, options: { responsive: true } });</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentor ND | Painel Vibracional</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 font-sans">
+<div id="toast" class="hidden fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-50 text-sm"></div>
+<aside class="fixed w-64 h-screen bg-white border-r flex flex-col">
+<div class="p-6">
+<h1 class="text-purple-700 font-bold text-xl">Mentor ND</h1>
+<p class="text-xs text-gray-400">Transceptor Noosférico</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+<a href="#" class="block px-4 py-2 rounded-lg bg-purple-50 text-purple-700 font-medium">Painel</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Pacientes</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Frequências</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Tocador Quântico</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Cores da Aura</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Aura pelo Nome</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Problemas Físicos</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Protocolo Noosférico</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Luto Emocional</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Chakra Umbilical</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Histórico</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Relatório Geral</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Ficha Técnica</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Documentação</a>
+</nav>
+<div class="p-4 text-xs text-gray-400 border-t">claudia.silvana.rj@gmail.com</div>
+</aside>
+
+<header class="sticky top-0 bg-white border-b px-8 py-4 flex justify-between items-center z-10 ml-64">
+<div>
+<h2 class="font-bold text-lg">Painel Vibracional</h2>
+<p class="text-sm text-gray-500">Visão geral do consultório</p>
+</div>
+<div class="flex items-center gap-3">
+<span class="text-xs text-gray-400">Previewing last saved version /dashboard</span>
+<button class="px-4 py-2 text-sm border rounded-lg">Share</button>
+<button class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg">Upgrade</button>
+<button class="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg">Publish</button>
+</div>
+</header>
+
+<main class="ml-64 p-8">
+<div class="grid grid-cols-3 gap-6 mb-8">
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<p class="text-sm text-gray-500">Pacientes</p>
+<p class="text-3xl font-bold mt-1">24</p>
+</div>
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<p class="text-sm text-gray-500">Sessões registradas</p>
+<p class="text-3xl font-bold mt-1">28</p>
+</div>
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<p class="text-sm text-gray-500">AM médio</p>
+<p class="text-3xl font-bold mt-1 text-green-600">8.4% ↑</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="col-span-2 bg-white p-6 rounded-xl border shadow-sm">
+<h3 class="font-bold">Sincronização com Schumann (7,83 Hz)</h3>
+<p class="text-sm text-gray-500 mb-4">Ressonância base planetária × frequência vibracional média por sessão · Sincronia atual: 67.8%</p>
+<canvas id="schumannChart" class="h-48 w-full"></canvas>
+</div>
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<h3 class="font-bold mb-4">Iniciar uma sessão</h3>
+<p class="text-sm text-gray-600 mb-6">Aplique um pleito e registre baseline / after.</p>
+<button onclick="openModal('modalPacientes')" class="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold">Selecionar paciente</button>
+<button onclick="openModal('modalHistorico')" class="w-full py-3 rounded-lg border border-purple-600 text-purple-600 font-bold mt-2">Ver histórico clínico</button>
+</div>
+</div>
+</main>
+
+<div id="modalPacientes" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto">
+<h3 class="font-bold mb-4 text-lg">Selecionar Paciente</h3>
+<div class="space-y-1">
+<button onclick="selecionarPaciente('Pamela Cristina Azevedo de Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Pamela Cristina Azevedo de Oliveira <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Lúcio Ribeiro')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Lúcio Ribeiro <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Iclea Beiral Forni')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Iclea Beiral Forni <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Vilma')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Vilma <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Anna Livian Mendonça do Vale')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Anna Livian Mendonça do Vale <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Emília Paula Guimarães de Mello Alves')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Emília Paula Guimarães de Mello Alves <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Derli José Mendes')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Derli José Mendes <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Cristina Helena Sales Pereira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Cristina Helena Sales Pereira <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Gabrielle Pereira Martins')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Gabrielle Pereira Martins <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Maria Celia Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Maria Celia Oliveira <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Rosimar Aparecida Martins Pereira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Rosimar Aparecida Martins Pereira <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Sophia Aurora Barroso de Oliveira')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Sophia Aurora Barroso de Oliveira <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Ana Luiza Mouzinho Associacao')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Ana Luiza Mouzinho Associacao <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Andrea Venezuela Campos')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Andrea Venezuela Campos <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Marcos Vinicios dos Santos de Sá')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Marcos Vinicios dos Santos de Sá <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Alexandre Loureiro Costa')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Alexandre Loureiro Costa <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Greice Damião de Assis')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Greice Damião de Assis <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Adriana Grissela Rodrigues e Rodrigues')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Adriana Grissela Rodrigues e Rodrigues <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Maria Márcia Carneiro da Silva')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Maria Márcia Carneiro da Silva <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Mariane Fátima Brazao')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Mariane Fátima Brazao <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Anna Luuza Fonseca Miranda')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Anna Luuza Fonseca Miranda <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Angela Morgado Lima')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Angela Morgado Lima <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Arthur Domingo Pires Augusto')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Arthur Domingo Pires Augusto <span class="text-purple-400">→</span></button>
+<button onclick="selecionarPaciente('Raiane de Lemos Alves')" class="w-full text-left px-3 py-2 hover:bg-purple-50 hover:text-purple-700 rounded-lg transition flex justify-between items-center">Raiane de Lemos Alves <span class="text-purple-400">→</span></button>
+</div>
+<button onclick="closeModal('modalPacientes')" class="mt-4 w-full bg-gray-200 py-2 rounded-lg">Fechar</button>
+</div>
+</div>
+
+<div id="modalHistorico" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto">
+<h3 class="font-bold mb-4 text-lg">Histórico Clínico</h3>
+<div class="space-y-2 text-sm">
+<div>09/06 - Pamela Cristina Azevedo de Oliveira - 7.8Hz</div>
+<div>06/06 - Lúcio Ribeiro - 8.2Hz</div>
+<div>06/06 - Iclea Beiral Forni - 7.5Hz</div>
+<div>06/06 - Vilma - 7.9Hz</div>
+<div>27/05 - Anna Livian Mendonça do Vale - 7.3Hz</div>
+<div>24/05 - Emília Paula Guimarães de Mello Alves - 8.1Hz</div>
+<div>24/05 - Derli José Mendes - 7.7Hz</div>
+<div>23/05 - Cristina Helena Sales Pereira - 8.4Hz</div>
+<div>20/05 - Gabrielle Pereira Martins - 7.6Hz</div>
+<div>17/05 - Maria Celia Oliveira - 8.0Hz</div>
+<div>17/05 - Rosimar Aparecida Martins Pereira - 7.8Hz</div>
+<div>17/05 - Sophia Aurora Barroso de Oliveira - 7.2Hz</div>
+<div>16/05 - Ana Luiza Mouzinho Associacao - 8.3Hz</div>
+<div>16/05 - Andrea Venezuela Campos - 7.5Hz</div>
+<div>16/05 - Marcos Vinicios dos Santos de Sá - 8.1Hz</div>
+<div>16/05 - Alexandre Loureiro Costa - 7.9Hz</div>
+<div>16/05 - Greice Damião de Assis - 8.5Hz</div>
+<div>16/05 - Adriana Grissela Rodrigues e Rodrigues - 7.7Hz</div>
+<div>16/05 - Maria Márcia Carneiro da Silva - 8.2Hz</div>
+<div>16/05 - Mariane Fátima Brazao - 7.4Hz</div>
+<div>16/05 - Anna Luuza Fonseca Miranda - 8.6Hz</div>
+<div>16/05 - Angela Morgado Lima - 7.8Hz</div>
+<div>13/05 - Arthur Domingo Pires Augusto - 7.1Hz</div>
+<div>13/05 - Raiane de Lemos Alves - 8.0Hz</div>
+</div>
+<button onclick="closeModal('modalHistorico')" class="mt-4 w-full bg-gray-200 py-2 rounded-lg">Fechar</button>
+</div>
+</div>
+
+<script>
+function selecionarPaciente(nome) {
+document.getElementById('modalPacientes').classList.add('hidden');
+const t = document.getElementById('toast');
+t.textContent = '✅ ' + nome + ' selecionado(a)';
+t.classList.remove('hidden');
+setTimeout(() => t.classList.add('hidden'), 3000);
+}
+function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+const ctx = document.getElementById('schumannChart').getContext('2d');
+new Chart(ctx, {
+type: 'line',
+data: {
+labels: ['13/05','16/05','17/05','20/05','23/05','24/05','27/05','06/06','09/06'],
+datasets: [{data: [7.2,8.1,7.9,8.5,7.8,9.2,8.4,7.6,8.0],borderColor:'#9333ea',tension:0.4}]
+},
+options: {scales:{y:{min:6.5,max:9.5}},plugins:{legend:{display:false}}}
+});
+</script>
+</body>
+</html>
