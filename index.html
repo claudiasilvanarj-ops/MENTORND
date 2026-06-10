@@ -1,3 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentor ND | Painel Vibracional</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 font-sans text-gray-900">
+<div id="toast" class="hidden fixed top-4 right-4 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-[999] text-sm font-medium"></div>
+<aside class="fixed w-64 h-screen bg-white border-r flex flex-col z-10">
+<div class="p-6">
+<h1 class="text-purple-700 font-bold text-xl">Mentor ND</h1>
+<p class="text-xs text-gray-400">Transceptor Noosférico</p>
+</div>
+<nav class="flex-1 px-4 space-y-1 overflow-y-auto">
+<a href="#" class="block px-4 py-2 rounded-lg bg-purple-50 text-purple-700 font-medium">Painel</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Pacientes</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Frequências</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Tocador Quântico</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Cores da Aura</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Aura pelo Nome</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Problemas Físicos</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Protocolo Noosférico</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Luto Emocional</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Chakra Umbilical</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Histórico</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Relatório Geral</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Ficha Técnica</a>
+<a href="#" class="block px-4 py-2 rounded-lg text-gray-600 hover:bg-gray-100">Documentação</a>
+</nav>
+<div class="p-4 text-xs text-gray-400 border-t">claudia.silvana.rj@gmail.com</div>
+</aside>
+<header class="sticky top-0 bg-white border-b ml-64 px-8 py-4 flex justify-between items-center z-10">
+<div>
+<h2 class="font-bold text-lg">Painel Vibracional</h2>
+<p class="text-sm text-gray-500">Visão geral do consultório</p>
+</div>
+<div class="flex items-center gap-3">
+<button class="px-4 py-2 text-sm border rounded-lg">Share</button>
+<button class="px-4 py-2 text-sm bg-gray-900 text-white rounded-lg">Upgrade</button>
+<button class="px-4 py-2 text-sm bg-purple-600 text-white rounded-lg">Publish</button>
+</div>
+</header>
+<main class="ml-64 p-8">
+<div class="grid grid-cols-3 gap-6 mb-8">
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<p class="text-sm text-gray-500">Pacientes</p>
+<p class="text-3xl font-bold mt-1">24</p>
+</div>
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<p class="text-sm text-gray-500">Sessões registradas</p>
+<p class="text-3xl font-bold mt-1">28</p>
+</div>
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<p class="text-sm text-gray-500">AM médio</p>
+<p class="text-3xl font-bold mt-1 text-green-600">8.4% ↑</p>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-6">
+<div class="col-span-2 bg-white p-6 rounded-xl border shadow-sm">
+<h3 class="font-bold">Sincronização com Schumann (7,83 Hz)</h3>
+<p class="text-sm text-gray-500 mb-4">Ressonância base planetária × frequência vibracional média por sessão</p>
+<canvas id="schumannChart" class="h-48 w-full"></canvas>
+</div>
+<div class="bg-white p-6 rounded-xl border shadow-sm">
+<h3 class="font-bold mb-4">Iniciar uma sessão</h3>
+<p class="text-sm text-gray-600 mb-6">Aplique um pleito e registre baseline / after.</p>
+<button onclick="abrirModalPacientes()" class="w-full py-3 rounded-lg bg-gradient-to-r from-purple-600 to-green-500 text-white font-bold">Selecionar paciente</button>
+<button onclick="abrirModalHistorico()" class="w-full py-3 rounded-lg border border-purple-600 text-purple-600 font-bold mt-2">Ver histórico clínico</button>
+</div>
+</div>
+</main>
+<div id="modalPacientes" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div class="bg-white p-6 rounded-xl w-full max-w-4xl max-h-[85vh] overflow-y-auto m-4">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-lg">Selecionar Paciente</h3>
+<button onclick="fecharModal('modalPacientes')" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">X</button>
+</div>
+<input type="text" id="buscaPaciente" onkeyup="filtrarPacientes()" placeholder="Buscar por nome ou telefone..." class="w-full p-3 border rounded-lg mb-4 text-sm">
+<div id="gridCards" class="grid grid-cols-3 gap-4"></div>
+</div>
+</div>
+<div id="modalFicha" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div class="bg-white p-8 rounded-xl w-96 max-h-[85vh] overflow-y-auto">
+<div id="conteudoFicha"></div>
+</div>
+</div>
+<div id="modalHistorico" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+<div class="bg-white p-6 rounded-xl w-96 max-h-[80vh] overflow-y-auto">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-bold text-lg">Histórico Clínico</h3>
+<button onclick="fecharModal('modalHistorico')" class="text-gray-400 hover:text-gray-600 text-2xl leading-none">X</button>
+</div>
+<div id="listaHistorico" class="space-y-2 text-sm"></div>
+</div>
+</div>
 <script>
 var pacientes=[{nome:"Pamela Cristina Azevedo de Oliveira",tel:"21995902211",idade:30,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Lucio Ribeiro",tel:"21987037102",idade:72,genero:"Masculino",queixas:"Dor pescoco, dor ombro",medicamentos:""},{nome:"Iclea Beiral Forni",tel:"21995902211",idade:60,genero:"Feminino",queixas:"Cancer",medicamentos:""},{nome:"Vilma",tel:"21964292307",idade:68,genero:"Feminino",queixas:"Labirintos, diverticulite, coluna",medicamentos:""},{nome:"Anna Livian Mendonca do Vale",tel:"21963292307",idade:13,genero:"Feminino",queixas:"Fechada no quarto",medicamentos:""},{nome:"Emilia Paula Guimaraes de Mello Alves",tel:"21997397327",idade:69,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Derli Jose Mendes",tel:"21964292307",idade:62,genero:"Masculino",queixas:"",medicamentos:""},{nome:"Cristina Helena Sales Pereira",tel:"21964292307",idade:53,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Gabrielle Pereira Martins",tel:"6492467331",idade:25,genero:"Feminino",queixas:"Endometriose, obesidade, fibromialgia",medicamentos:"Pregabalina, trazodona, quetiapina"},{nome:"Maria Celia Oliveira",tel:"21964292307",idade:63,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Rosimar Aparecida Martins Pereira",tel:"21964292307",idade:53,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Sophia Aurora Barroso de Oliveira",tel:"21964292307",idade:0,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Ana Luiza Mouzinho Associacao",tel:"5521978166867",idade:43,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Andrea Venezuela Campos",tel:"21980126530",idade:44,genero:"Feminino",queixas:"Ciatico",medicamentos:""},{nome:"Marcos Vinicios dos Santos de Sa",tel:"21995902211",idade:61,genero:"Masculino",queixas:"Abdomen, sistema respiratorio",medicamentos:""},{nome:"Alexandre Loureiro Costa",tel:"21996006388",idade:44,genero:"Masculino",queixas:"",medicamentos:""},{nome:"Greice Damiao de Assis",tel:"21993165400",idade:65,genero:"Feminino",queixas:"Gastrite",medicamentos:""},{nome:"Adriana Grissela Rodrigues e Rodrigues",tel:"21988568436",idade:56,genero:"Feminino",queixas:"Sangue, hipotireoidismo",medicamentos:""},{nome:"Maria Marcia Carneiro da Silva",tel:"21997076050",idade:59,genero:"Feminino",queixas:"Mioma",medicamentos:""},{nome:"Mariane Fatima Brazao",tel:"21993997159",idade:73,genero:"Feminino",queixas:"Glicose",medicamentos:""},{nome:"Anna Luuza Fonseca Miranda",tel:"21997666801",idade:48,genero:"Feminino",queixas:"",medicamentos:""},{nome:"Angela Morgado Lima",tel:"21974649797",idade:66,genero:"Feminino",queixas:"Estomago",medicamentos:""},{nome:"Arthur Domingo Pires Augusto",tel:"21964292307",idade:6,genero:"Masculino",queixas:"Autismo, agitacao",medicamentos:""},{nome:"Raiane de Lemos Alves",tel:"21964292307",idade:28,genero:"Feminino",queixas:"",medicamentos:""}];
 var pacienteAtual=null;
@@ -5,4 +103,10 @@ function abrirModalPacientes(){gerarCards();document.getElementById('modalPacien
 function abrirModalHistorico(){document.getElementById('modalHistorico').classList.remove('hidden');}
 function fecharModal(id){document.getElementById(id).classList.add('hidden');}
 function showToast(m){var t=document.getElementById('toast');t.textContent=m;t.classList.remove('hidden');setTimeout(function(){t.classList.add('hidden');},3000);}
-function gerarCards(lista){var g=document.getElementById('gridCards');var d=lista||pacientes;g.innerHTML='';for(var i=0;i<d.length;i++){var p=d[i];var c=document.createElement('div');c.className='bg-white p-4 rounded-xl border shadow-sm hover:shadow-md cursor-pointer transition';(function(pac){var ini=pac.nome.split(' ').map(function(n){return n[0]}).join('').substring(0,2).toUpperCase();var q=pac.queixas?'<span class="text-[10px] bg-amber-50 text-amber-700 px-2 py-0.5 rounded mt-1 inline-block">'+pac.queixas+'</span>':'';c.innerHTML='<div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-sm font-bold text-purple-700">'+ini+'</div><div><p class="font-bold text-sm">'+pac.nome+'</p><p class="text-xs text-gray-500">'+pac.tel+'</p></div></div><p class="text-xs text-gray-500 mb-1">'+pac.idade+' anos / '+pac.genero+'</p>'+q+'<div class="flex gap-2 mt-3"><button class="flex-1 bg-teal-600 text-white text-[10px] py-1 rounded" onclick="fecharModal('modalPacientes')">Ficha</button></div>';c.onclick=function(){abrirFicha(pac);};})(p);g.appendChild(c);}}
+function gerarCards(lista){var g=document.getElementById('gridCards');var d=lista||pacientes;g.innerHTML='';for(var i=0;i<d.length;i++){var p=d[i];var c=document.createElement('div');c.className='bg-white p-4 rounded-xl border shadow-sm hover:shadow-md cursor-pointer transition';(function(pac){var ini=pac.nome.split(' ').map(function(n){return n[0]}).join('').substring(0,2).toUpperCase();var q=pac.queixas?'<span class="text-[10px] bg-amber-50 text-amber-700 px-2 py-0.5 rounded mt-1 inline-block">'+pac.queixas+'</span>':'';c.innerHTML='<div class="flex items-center gap-3 mb-2"><div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-sm font-bold text-purple-700">'+ini+'</div><div><p class="font-bold text-sm">'+pac.nome+'</p><p class="text-xs text-gray-500">'+pac.tel+'</p></div></div><p class="text-xs text-gray-500 mb-1">'+pac.idade+' anos / '+pac.genero+'</p>'+q+'<div class="flex gap-2 mt-3"><button class="flex-1 bg-teal-600 text-white text-[10px] py-1 rounded" onclick="event.stopPropagation();fecharModal(\'modalPacientes\');showToast(\'Sessao\')">Nova sessao</button><button class="flex-1 border border-purple-600 text-purple-600 text-[10px] py-1 rounded" onclick="fecharModal(\'modalPacientes\')">Ficha</button></div>';c.onclick=function(){abrirFicha(pac);};})(p);g.appendChild(c);}}
+function filtrarPacientes(){var t=document.getElementById('buscaPaciente').value.toLowerCase();var f=[];for(var i=0;i<pacientes.length;i++){var p=pacientes[i];if(p.nome.toLowerCase().indexOf(t)>=0||p.tel.indexOf(t)>=0)f.push(p);}gerarCards(f);}
+function abrirFicha(p){pacienteAtual=p;var ini=p.nome.split(' ').map(function(n){return n[0]}).join('').substring(0,2).toUpperCase();var q=p.queixas?'<p><strong>Queixas:</strong> '+p.queixas+'</p>':'<p class="text-gray-400 text-sm">Nenhuma queixa</p>';var m=p.medicamentos?'<p><strong>Medicamentos:</strong> '+p.medicamentos+'</p>':'<p class="text-gray-400 text-sm">Nenhum medicamento</p>';document.getElementById('conteudoFicha').innerHTML='<div class="flex flex-col items-center"><div class="w-20 h-20 bg-purple-200 rounded-full flex items-center justify-center text-2xl font-bold text-purple-700 mb-4">'+ini+'</div><h3 class="text-xl font-bold text-center">'+p.nome+'</h3><p class="text-sm text-gray-500">'+p.tel+'</p><p class="text-sm text-gray-600 mb-3">'+p.idade+' anos / '+p.genero+'</p><div class="w-full p-4 bg-gray-50 rounded-lg mb-4 text-sm">'+q+m+'</div><div class="grid grid-cols-2 gap-2 w-full"><button class="bg-teal-600 text-white py-2 rounded text-sm" onclick="fecharModal(\'modalFicha\');showToast(\'Sessao\')">Nova sessao</button><button class="border border-purple-600 text-purple-600 py-2 rounded text-sm" onclick="fecharModal(\'modalFicha\');abrirModalHistorico()">Historico</button><button class="border border-gray-300 py-2 rounded text-sm" onclick="fecharModal(\'modalFicha\');showToast(\'Editando\')">Editar</button><button class="bg-purple-600 text-white py-2 rounded text-sm" onclick="fecharModal(\'modalFicha\');showToast(\'Relatorio\')">Relatorio</button></div><button onclick="fecharModal(\'modalFicha\')" class="mt-4 text-sm text-gray-400">Fechar</button></div>';document.getElementById('modalFicha').classList.remove('hidden');}
+document.addEventListener('DOMContentLoaded',function(){new Chart(document.getElementById('schumannChart'),{type:'line',data:{labels:['13/05','16/05','17/05','20/05','23/05','27/05','06/06','09/06'],datasets:[{data:[62,65,68,70,72,75,78,80],borderColor:'#9333ea',tension:0.4}]},options:{plugins:{legend:{display:false}},scales:{y:{min:55,max:85}}}});});
+</script>
+</body>
+</html>
