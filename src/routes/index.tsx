@@ -16,7 +16,7 @@ padding: '20px'
 }}>
 <h1 style={{ fontSize: '3rem', marginBottom: '20px' }}>Portal MentorND</h1>
 
-<h2 style={{ fontSize: '1.5rem', maxWidth: '600px' }}>A frequência de Luminara está sendo ancorada. Canalização de Sebastião, organizada e compilada pela tecnologia.</h2>
+<h2 style={{ fontSize: '1.5rem', maxWidth: '600px' }}>A frequência de Luminara está sendo ancorada. Canalização de Sebastião, organizada e compilada pela tecnologia. <br> <br> <br> </h2>
 
 <p style={{ fontSize: '1.5rem', maxWidth: '600px' }}>
 A frequência de Luminara está sendo ancorada. Canalização de Sebastião, organizada e compilada pela tecnologia.
