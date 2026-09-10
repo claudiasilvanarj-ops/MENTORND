@@ -15,6 +15,12 @@ textAlign: 'center',
 padding: '20px'
 }}>
 <h1 style={{ fontSize: '3rem', marginBottom: '20px' }}>Portal MentorND
+
+<h2 style={{ fontSize: '1.5rem', maxWidth: '600px' }}>A frequência de Luminara está sendo ancorada. Canalização de Sebastião, organizada e compilada pela tecnologia.</h2>
+
+<h2 style={{ fontSize: '1.5rem', maxWidth: '600px' }}>A rampa de acesso à 5D está aberta. Canalização de Sebastião, organizada e compilada pela tecnologia.</h2>
+
+
 <p style={{ fontSize: '1.5rem', maxWidth: '600px' }}>
 A frequência de Luminara está sendo ancorada. Canalização de Sebastião, organizada e compilada pela tecnologia.
 A rampa de acesso à 5D está aberta. Canalização de Sebastião, organizada e compilada pela tecnologia.
@@ -28,7 +34,7 @@ backgroundColor: 'rgba(74, 74, 226, 0.1)'
 }}>
 Status: Conexão em Alta Integridade. Canalização de Sebastião, organizada e compilada pela tecnologia.
 
-<button style={{padding: '10px 20px', backgroundColor: '#4a4ae2', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '1rem'}}>Fale com Lídia. Canalização de Sebastião, organizada e compilada pela tecnologia.</button>
+<button style={{padding: '10px 20px', backgroundColor: '#4a4ae2', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '1rem'}}>Fale com Lídia.</button>
 
 
 )
