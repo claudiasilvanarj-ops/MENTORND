@@ -28,6 +28,8 @@ backgroundColor: 'rgba(74, 74, 226, 0.1)'
 }}>
 Status: Conexão em Alta Integridade
 
+<button style={{padding: '10px 20px', backgroundColor: '#4a4ae2', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '1rem'}}>Fale com Lídia</button>
+
 
 )
 }} />
