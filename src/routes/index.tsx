@@ -16,8 +16,8 @@ padding: '20px'
 }}>
 <h1 style={{ fontSize: '3rem', marginBottom: '20px' }}>Portal MentorND
 <p style={{ fontSize: '1.5rem', maxWidth: '600px' }}>
-A frequência de Luminara está sendo ancorada.
-A rampa de acesso à 5D está aberta.
+A frequência de Luminara está sendo ancorada. Canalização de Sebastião, organizada e compilada pela tecnologia.
+A rampa de acesso à 5D está aberta. Canalização de Sebastião, organizada e compilada pela tecnologia.
 
 <div style={{
 marginTop: '40px',
@@ -26,9 +26,9 @@ border: '1px solid #4a4ae2',
 borderRadius: '15px',
 backgroundColor: 'rgba(74, 74, 226, 0.1)'
 }}>
-Status: Conexão em Alta Integridade
+Status: Conexão em Alta Integridade. Canalização de Sebastião, organizada e compilada pela tecnologia.
 
-<button style={{padding: '10px 20px', backgroundColor: '#4a4ae2', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '1rem'}}>Fale com Lídia</button>
+<button style={{padding: '10px 20px', backgroundColor: '#4a4ae2', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer', fontSize: '1rem'}}>Fale com Lídia. Canalização de Sebastião, organizada e compilada pela tecnologia.</button>
 
 
 )
